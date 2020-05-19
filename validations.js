@@ -110,3 +110,29 @@ export const location = yup
     .trim()
     .required()
     .label('Location');
+
+//Tag lines
+export const tagline = yup
+    .string()
+    .trim()
+    .max(30)
+    .matches(/^[a-zA-Z0-9 ]+$/,'Not alphanumeric')
+    .required()
+    .label('Tag LInes');
+
+//Company name
+export const companyname = yup
+    .string()
+    .trim()
+    .max(30)
+    .notRequired()
+    .label('Company Name');
+
+// Zymmo tags
+export const  Zymmotags = yup
+    .string()
+    .trim()
+    .max(30)
+    .matches(/^[a-zA-Z0-9 ]+$/,'Not alphanumeric')
+    .required()
+    .label('Zymmo tags')
