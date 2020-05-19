@@ -1,6 +1,5 @@
 import * as yup from 'yup';
 
-// Signup
 export const email = yup
     .string()
     .trim()
@@ -22,7 +21,7 @@ export const password = yup
     .required()
     .label('Password');
 
-export const firstname = yup
+export const firstName = yup
     .string()
     .trim()
     .min(1)
@@ -32,7 +31,7 @@ export const firstname = yup
     .required()
     .label('First Name');
 
-export const lastname = yup
+export const lastName = yup
     .string()
     .trim()
     .min(1)
@@ -40,6 +39,17 @@ export const lastname = yup
     .matches(/^[a-zA-Z]*$/, 
       'Only alphabets allowed in Name.')
     .required()
+    .label('Last Name');
+
+//
+export const lastNameNotMandatory = yup
+    .string()
+    .trim()
+    .min(1)
+    .max(30)
+    .matches(/^[a-zA-Z]*$/, 
+      'Only alphabets allowed in Name.')
+    .notRequired()
     .label('Last Name');
 
 // Verification OTP - Tests for 4 digits
@@ -52,7 +62,7 @@ export const otp = yup
     .label('OTP');
 
 // Mobile number - Tests for 8 to 12 digits
-export const mobilenumber = yup
+export const mobileNumber = yup
     .string()
     .trim()
     .min(8, 
@@ -63,8 +73,6 @@ export const mobilenumber = yup
       'Mobile number should be numbers only.')
     .required()
     .label('Mobile Number');
-
-// Payment validations
 
 // Name in card - Allows name with spaces in between
 export const name = yup
@@ -78,7 +86,7 @@ export const name = yup
     .label('Name');
 
 // Card number - Tests for 16 digits
-export const cardnumber = yup
+export const cardNumber = yup
     .string()
     .trim()
     .matches(/^[0-9]{16}$/, 
@@ -95,14 +103,33 @@ export const cvc = yup
     .required()
     .label('CVC');
 
-// Card expiry date - Tests for 03/21
-export const expirydate = yup
+// Card expiry date - Tests allows 03/21, 03/2021, 11/21 
+export const expiryDate = yup
     .string()
     .trim()
     .matches(/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/, 
       'Invalid date.')
     .required()
     .label('Expiry Date');
+
+// Can be used for seperate month and date validations
+// Card expiry date for month - Tests allows 03 and 10, 11, 12
+export const expiryDateMonth = yup
+    .string()
+    .trim()
+    .matches(/^(0[1-9]|1[0-2])$/, 
+      'Invalid month.')
+    .required()
+    .label('Expiry Date Month');
+
+// Card expiry date for year - Test allows 21, 2021
+export const expiryDateYear = yup
+    .string()
+    .trim()
+    .matches(/^([0-9]{4}|[0-9]{2})$/, 
+      'Invalid year.')
+    .required()
+    .label('Expiry Date Year');
 
 // Location
 export const location = yup
@@ -111,17 +138,18 @@ export const location = yup
     .required()
     .label('Location');
 
-//Tag lines
+// Tag lines
 export const tagline = yup
     .string()
     .trim()
     .max(30)
-    .matches(/^[a-zA-Z0-9 ]+$/,'Not alphanumeric')
+    .matches(/^[a-zA-Z0-9 ]+$/, 
+      'Should be alphanumeric only.')
     .required()
-    .label('Tag LInes');
+    .label('Tag Lines');
 
-//Company name
-export const companyname = yup
+// Company name
+export const companyName = yup
     .string()
     .trim()
     .max(30)
@@ -129,10 +157,11 @@ export const companyname = yup
     .label('Company Name');
 
 // Zymmo tags
-export const  Zymmotags = yup
+export const  zymmoTags = yup
     .string()
     .trim()
     .max(30)
-    .matches(/^[a-zA-Z0-9 ]+$/,'Not alphanumeric')
+    .matches(/^[a-zA-Z0-9]+$/, 
+      'Should be alphanumeric only.')
     .required()
-    .label('Zymmo tags')
+    .label('Zymmo Tags')
