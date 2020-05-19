@@ -143,8 +143,6 @@ export const tagline = yup
     .string()
     .trim()
     .max(30)
-    .matches(/^[a-zA-Z0-9 ]+$/, 
-      'Should be alphanumeric only.')
     .required()
     .label('Tag Lines');
 
@@ -155,13 +153,3 @@ export const companyName = yup
     .max(30)
     .notRequired()
     .label('Company Name');
-
-// Zymmo tags
-export const  zymmoTags = yup
-    .string()
-    .trim()
-    .max(30)
-    .matches(/^[a-zA-Z0-9]+$/, 
-      'Should be alphanumeric only.')
-    .required()
-    .label('Zymmo Tags')
