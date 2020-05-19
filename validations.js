@@ -4,6 +4,7 @@ import * as yup from 'yup';
 export const email = yup
     .string()
     .trim()
+    .max(30)
     .email('Email must be valid.')
     .required()
     .label('Email');
