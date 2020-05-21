@@ -74,6 +74,19 @@ export const mobilenumber = yup
     .required()
     .label('Mobile Number');
 
+// Mobile number - Tests for 8 to 12 digits
+export const mobilenumber_optional = yup
+    .string()
+    .trim()
+    .min(8, 
+      'Should be atleast eight digits.')
+    .max(12, 
+      'Can be maximum of twelve digits long.')
+    .matches(/^[0-9]{8,12}$/, 
+      'Mobile number should be numbers only.')
+    .notRequired()
+    .label('Mobile Number Optional');
+
 // Name in card - Allows name with spaces in between
 export const name = yup
     .string()
@@ -103,15 +116,6 @@ export const cvc = yup
     .required()
     .label('CVC');
 
-// Card expiry date - Tests allows 03/21, 03/2021, 11/21 
-export const expiryDate = yup
-    .string()
-    .trim()
-    .matches(/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/, 
-      'Invalid date.')
-    .required()
-    .label('Expiry Date');
-
 // Can be used for seperate month and date validations
 // Card expiry date for month - Tests allows 03 and 10, 11, 12
 export const expirydate_month = yup
@@ -131,6 +135,15 @@ export const expirydate_year = yup
     .required()
     .label('Expiry Date Year');
 
+// Card expiry date - Tests allows 03/21, 03/2021, 11/21 
+export const expirydate = yup
+    .string()
+    .trim()
+    .matches(/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/, 
+      'Invalid date.')
+    .required()
+    .label('Expiry Date');
+
 // Location
 export const location = yup
     .string()
@@ -146,8 +159,18 @@ export const tagline = yup
     .required()
     .label('Tag Line');
 
-// Company name
-export const companyname = yup
+// Tags - Allows Tags with spaces in between
+export const tags = yup
+    .string()
+    .trim()
+    .min(1)
+    .max(30)
+    .matches(/^[a-zA-Z][a-zA-Z ]+$/, 
+      'Only alphabets allowed in Tags.')
+    .label('Tags');
+
+// Company Name
+export const company_name = yup
     .string()
     .trim()
     .max(30)
@@ -160,46 +183,34 @@ export const price = yup
     .trim()
     .matches(/^([1-9]\d*(?:\.\d{0,2}))$/)
     .required()
-    .label('Price')
+    .label('Price');
 
-// recipe name
-export const recipename = yup
+// Recipe Name
+export const recipe_name = yup
     .string()
     .trim()
+    .matches(/^[ A-Za-z0-9_,./&+-]*$/)
     .required()
+    .label('Recipe Name');
 
-// recipe description
-export const recipedescription = yup
-      .string()
-      .trim()
-      .matches(/^[a-zA-Z][a-zA-Z ]+$/, 
-        'Only alphabets allowed in Description.')
-      .required()
+// Recipe Description
+export const recipe_description = yup
+    .string()
+    .trim()
+    .matches(/^[a-zA-Z][a-zA-Z ]+$/, 
+      'Only alphabets allowed in description.')
+    .required()
+    .label('Recipe Description');
 
-//pickedup date 
-export const pickedupdate = yup
-        .string()
-        .required()
+// Picked up Date 
+export const picked_up_date = yup
+    .required()
+    .label('Picked up Date');
 
-//note for chef
+// Note for Chef - allows . , and alphanumerics
 export const note = yup
-        .string()
-        .trim()
-        .max(30)
-        .matches(/^[a-zA-Z0-9 ]+$/)
-        .notRequired()
-
-//rating        
-export const rating = yup
-        .string()
-        .trim()
-        .max(30)
-        .matches(/^[a-zA-Z0-9 ]+$/)
-        .notRequired()
-
-//having trouble with order
-export const troublewithorder = yup
-        .string()
-        .trim()
-        .max(30)
-        .matches(/^[a-zA-Z0-9 ]+$/)
+    .string()
+    .trim()
+    .matches(/^[ A-Za-z0-9_,./&+-]*$/)
+    .notRequired()
+    .label('Note');
