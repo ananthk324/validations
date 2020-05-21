@@ -161,3 +161,45 @@ export const price = yup
     .matches(/$[1-9]\d*(?:\.\d{0,3})?/)
     .required()
     .label('Price')
+
+// recipe name
+export const recipename = yup
+    .string()
+    .trim()
+    .required()
+
+// recipe description
+export const recipedescription = yup
+      .string()
+      .trim()
+      .matches(/^[a-zA-Z][a-zA-Z ]+$/, 
+        'Only alphabets allowed in Description.')
+      .required()
+
+//pickedup date 
+export const pickedupdate = yup
+        .string()
+        .required()
+
+//note for chef
+export const note = yup
+        .string()
+        .trim()
+        .max(30)
+        .matches(/^[a-zA-Z0-9 ]+$/)
+        .notRequired()
+
+//rating        
+export const rating = yup
+        .string()
+        .trim()
+        .max(30)
+        .matches(/^[a-zA-Z0-9 ]+$/)
+        .notRequired()
+
+//having trouble with order
+export const troublewithorder = yup
+        .string()
+        .trim()
+        .max(30)
+        .matches(/^[a-zA-Z0-9 ]+$/)
