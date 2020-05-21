@@ -158,6 +158,6 @@ export const companyname = yup
 export const price = yup
     .string()
     .trim()
-    .matches(/^([1-9]\d*(?:\.\d{0,3}))$/)
+    .matches(/^([1-9]\d*(?:\.\d{0,2}))$/)
     .required()
     .label('Price')
