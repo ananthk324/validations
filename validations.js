@@ -14,14 +14,14 @@ export const password = yup
     .min(8, 
       'Should be atleast eight characters long.')
     .max(30)
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])/,
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])$/,
       'Weak password. Add uppercase and lowercase letters.')
-    .matches(/^(?=.*[0-9])(?=.*[!@#\$%\^&\*])/,
+    .matches(/^(?=.*[0-9])(?=.*[!@#\$%\^&\*])$/,
       'Weak password. Add digits and symbols.')
     .required()
     .label('Password');
 
-export const firstName = yup
+export const firstname = yup
     .string()
     .trim()
     .min(1)
@@ -31,7 +31,7 @@ export const firstName = yup
     .required()
     .label('First Name');
 
-export const lastName = yup
+export const lastname = yup
     .string()
     .trim()
     .min(1)
@@ -42,7 +42,7 @@ export const lastName = yup
     .label('Last Name');
 
 //
-export const lastNameNotMandatory = yup
+export const lastname_notmandatory = yup
     .string()
     .trim()
     .min(1)
@@ -62,7 +62,7 @@ export const otp = yup
     .label('OTP');
 
 // Mobile number - Tests for 8 to 12 digits
-export const mobileNumber = yup
+export const mobilenumber = yup
     .string()
     .trim()
     .min(8, 
@@ -86,7 +86,7 @@ export const name = yup
     .label('Name');
 
 // Card number - Tests for 16 digits
-export const cardNumber = yup
+export const cardnumber = yup
     .string()
     .trim()
     .matches(/^[0-9]{16}$/, 
@@ -114,7 +114,7 @@ export const expiryDate = yup
 
 // Can be used for seperate month and date validations
 // Card expiry date for month - Tests allows 03 and 10, 11, 12
-export const expiryDateMonth = yup
+export const expirydate_month = yup
     .string()
     .trim()
     .matches(/^(0[1-9]|1[0-2])$/, 
@@ -123,10 +123,10 @@ export const expiryDateMonth = yup
     .label('Expiry Date Month');
 
 // Card expiry date for year - Test allows 21, 2021
-export const expiryDateYear = yup
+export const expirydate_year = yup
     .string()
     .trim()
-    .matches(/^([0-9]{4}|[0-9]{2})$/, 
+    .matches(/^([0-9]{2})$/, 
       'Invalid year.')
     .required()
     .label('Expiry Date Year');
@@ -142,22 +142,22 @@ export const location = yup
 export const tagline = yup
     .string()
     .trim()
-    .max(30)
+    .min(1)
     .required()
-    .label('Tag Lines');
+    .label('Tag Line');
 
 // Company name
-export const companyName = yup
+export const companyname = yup
     .string()
     .trim()
     .max(30)
     .notRequired()
     .label('Company Name');
 
-// price
+// Price
 export const price = yup
     .string()
     .trim()
-    .matches(/$[1-9]\d*(?:\.\d{0,3})?/)
+    .matches(/^([1-9]\d*(?:\.\d{0,3}))$/)
     .required()
     .label('Price')
