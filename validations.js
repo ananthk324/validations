@@ -153,3 +153,11 @@ export const companyName = yup
     .max(30)
     .notRequired()
     .label('Company Name');
+
+// price
+export const price = yup
+    .string()
+    .trim()
+    .matches(/$[1-9]\d*(?:\.\d{0,3})?/)
+    .required()
+    .label('Price')
