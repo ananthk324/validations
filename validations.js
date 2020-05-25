@@ -214,3 +214,20 @@ export const note = yup
     .matches(/^[ A-Za-z0-9_,./&+-]*$/)
     .notRequired()
     .label('Note');
+
+// username for Chef app(eg:- eg@Xyz)
+export const username_chef = yup
+      .string()
+      .trim()
+      .matches(/^[A-Za-z0-9@]+$/)
+      .required()
+      .label('Username')
+// username for Foodie app
+export const username_foodie = yup
+      .string()
+      .trim()
+      .matches(/^[A-Za-z0-9]+$/)
+      .required()
+      .label('Username')      
+
+
