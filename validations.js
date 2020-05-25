@@ -41,7 +41,6 @@ export const lastname = yup
     .required()
     .label('Last Name');
 
-//
 export const lastname_notmandatory = yup
     .string()
     .trim()
@@ -51,6 +50,14 @@ export const lastname_notmandatory = yup
       'Only alphabets allowed in Name.')
     .notRequired()
     .label('Last Name');
+
+// Username (eg: user123)
+export const username = yup
+    .string()
+    .trim()
+    .matches(/^[A-Za-z0-9]+$/)
+    .required()
+    .label('Username');
 
 // Verification OTP - Tests for 4 digits
 export const otp = yup
@@ -215,17 +222,9 @@ export const note = yup
     .notRequired()
     .label('Note');
 
-// username (eg:-Xyz)
-export const username = yup
-      .string()
-      .trim()
-      .matches(/^[A-Za-z0-9]+$/)
-      .required()
-      .label('Username')
-
 // sercive radius (dropdown box) 
 export const service_radius = yup
-      .required()
-      .label('Service Radius')
+    .required()
+    .label('Service Radius');
 
 
