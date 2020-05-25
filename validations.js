@@ -222,6 +222,10 @@ export const username = yup
       .matches(/^[A-Za-z0-9]+$/)
       .required()
       .label('Username')
-   
+
+// sercive radius (dropdown box) 
+export const service_radius = yup
+      .required()
+      .label('Service Radius')
 
 
