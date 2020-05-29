@@ -68,6 +68,22 @@ export const otp = yup
     .required()
     .label('OTP');
 
+// Verification OTP - Tests for 6 digits
+export const otp_six = yup
+    .string()
+    .trim()
+    .matches(/^[0-9]{6}$/, 
+      'OTP should be six digits.')
+    .required()
+    .label('OTP six');  
+
+// Verification code
+export const code = yup
+    .string()
+    .trim()
+    .required()
+    .label('Verification Code');
+
 // Mobile number - Tests for 8 to 12 digits
 export const mobilenumber = yup
     .string()
@@ -181,7 +197,7 @@ export const company_name = yup
     .string()
     .trim()
     .max(30)
-    .notRequired()
+    .required()
     .label('Company Name');
 
 // Price
